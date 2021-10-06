@@ -2,7 +2,7 @@ import '../../flutter_polyline_points.dart';
 
 /// description:
 /// project: flutter_polyline_points
-/// @package: 
+/// @package:
 /// @author: dammyololade
 /// created on: 13/05/2020
 class PolylineResult {
@@ -18,7 +18,29 @@ class PolylineResult {
   /// the error message returned from google, if none, the result will be empty
   String errorMessage;
 
+  /// The distance between the points
+  List<TextValue> distances = [];
+
+  /// The time duration
+  List<TextValue> durations = [];
+
   PolylineResult({this.status, this.points = const [], this.errorMessage = ""});
 
+}
+
+class TextValue {
+  /// Text to show
+  String text;
+  /// Value to save
+  var value;
+
+  TextValue({this.text, this.value});
+
+  /// To create a new TextValue from Map<String, dynamic>
+  ///
+  /// return [TextValue]
+  static TextValue create(Map<String, dynamic> data) {
+    return TextValue(text: data['text'], value: data['value']);
+  }
 
 }

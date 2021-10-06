@@ -56,8 +56,17 @@ class NetworkUtil {
           parsedJson["routes"].isNotEmpty) {
         result.points = decodeEncodedPolyline(
             parsedJson["routes"][0]["overview_polyline"]["points"]);
+        createExtraData(parsedJson, result);
       } else {
         result.errorMessage = parsedJson["error_message"];
+      }
+    }
+    ///Create extra data for points
+    ///
+    void createExtraData(parsedJson, PolylineResult result) {
+      for (var item in parsedJson["routes"][0]['legs']) {
+        result.distances.add(TextValue.create(item['distance']));
+        result.durations.add(TextValue.create(item['duration']));
       }
     }
     return result;
