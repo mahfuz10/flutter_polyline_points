@@ -10,6 +10,15 @@ import 'utils/polyline_result.dart';
 class NetworkUtil {
   static const String STATUS_OK = "ok";
 
+  ///Create extra data for points
+  ///
+  void createExtraData(parsedJson, PolylineResult result) {
+    for (var item in parsedJson["routes"][0]['legs']) {
+      result.distances.add(TextValue.create(item['distance']));
+      result.durations.add(TextValue.create(item['duration']));
+    }
+  }
+
   ///Get the encoded string from google directions api
   ///
   Future<PolylineResult> getRouteBetweenCoordinates(
@@ -59,14 +68,6 @@ class NetworkUtil {
         createExtraData(parsedJson, result);
       } else {
         result.errorMessage = parsedJson["error_message"];
-      }
-    }
-    ///Create extra data for points
-    ///
-    void createExtraData(parsedJson, PolylineResult result) {
-      for (var item in parsedJson["routes"][0]['legs']) {
-        result.distances.add(TextValue.create(item['distance']));
-        result.durations.add(TextValue.create(item['duration']));
       }
     }
     return result;
