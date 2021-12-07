@@ -34,7 +34,7 @@ class TextValue {
   /// Value to save
   var value;
 
-  TextValue({this.text, this.value});
+  TextValue({required this.text, required this.value});
 
   /// To create a new TextValue from Map<String, dynamic>
   ///
