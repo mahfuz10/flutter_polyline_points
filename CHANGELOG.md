@@ -1,3 +1,19 @@
+## [2.1.0] - 02-06-2024
+- Breaking change,
+  `getRouteBetweenCoordinates` now requires a `PolylineRequest` object
+- Updated http package
+- Bug fixes and general improvements
+  Special thanks to these contributors:
+- [@tetrix](https://github.com/TetrixGauss)
+- [@fadimanakilci](https://github.com/fadimanakilci)
+- [@anixsam](https://github.com/anixsam)
+## [2.0.0] - 22-08-2023
+Updated dependencies and added some new functionalities such as:
+- Fetching alternative routes
+- Optimised algorithm for web
+Special thanks to this contibutors for landing such huge PRs:
+- [@nnadir35](https://github.com/nnadir35)
+- [@shkvoretz](https://github.com/shkvoretz)
 ## [1.0.0] - 16-04-2021
 Released a null safety version
 ## [0.2.6] - 07-03-2021
